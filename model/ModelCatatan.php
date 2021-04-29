@@ -1,6 +1,6 @@
 <?php
 
-class ModelAuthor{
+class ModelCatatan{
     public function get(){
         $sql =
         "SELECT * FROM catatan";
