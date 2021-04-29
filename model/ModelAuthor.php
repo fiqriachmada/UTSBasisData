@@ -19,15 +19,15 @@ class ModelAuthor{
         require_once("view/author/index.php");
     }
     public function prosesAddCatatan($nama, $catatan, $idAuthor){
-        $sql = "INSERT INTO catatan (nama,catatan,author_id)
-        VALUE('$nama','$catatan','$idAuthor')";
+        $sql = "INSERT INTO catatan(judul,catatan,author_id)
+        VALUES('$nama','$catatan','$idAuthor')";
         return koneksi()->query($sql);
     }
 
     public function addCatatan(){
         $nama = $_POST['nama'];
         $catatan = $_POST['catatan'];
-        $idAuthor = $_POST['idAuthor'];
+        $idAuthor = $_GET['idAuthor'];
         if($this->prosesAddCatatan($nama,$catatan,$idAuthor)){
             header("location: index.php?page=author&aksi=view&pesan=sukses menambah catatan");
         }else{
